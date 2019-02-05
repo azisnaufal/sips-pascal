@@ -84,7 +84,7 @@ end;
 procedure Pencarian_Perihal;
 var 
     i:integer;
-    dicari:string[10];
+    dicari:string[16];
 begin
     writeln('Pencarian Berdasarkan Jenis');
     write('Jenis yang dicari    : ')readln(dicari);
