@@ -26,21 +26,26 @@ begin
     if (banyakdata>0) then
     begin
         clrscr;
-            //   000000000111111111122222222223333333333444444444455555555556
-            //   123456789012345678901234567890123456789012345678901234567890
-        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
-        writeln('------------------------------------------------------------');
+            //   000000000111111111122222222223333333333444444444455555555556666666666
+            //   123456789012345678901234567890123456789012345678901234567890123456789
+        writeln('--------------------------------------------------------------------');
+        writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+        writeln('--------------------------------------------------------------------');
         for i:= 1 to banyakdata do
         begin
-            gotoxy(3, i+3);write(surat[i].no_surat);
-            gotoxy(16, i+3);write(surat[i].perihal);
-            gotoxy(35, i+3);write(surat[i].jenis_surat);
-            gotoxy(49, i+3);write(surat[i].pengirim);
+            gotoxy(2, i+3);write(i);
+            gotoxy(8, i+3);write(surat[i].no_surat);
+            gotoxy(21, i+3);write(surat[i].perihal);
+            gotoxy(40, i+3);write(surat[i].jenis_surat);
+            gotoxy(56, i+3);write(surat[i].pengirim);
         end;
         writeln();
         writeln('Tekan enter untuk melanjutkan.');
         readln();
-    end;
+    end
+    else
+        writeln('Data pengarsipan surat masuk belum diisi.');
+    readln();
 end;
 
 //yusuf
@@ -52,8 +57,8 @@ begin
             writeln('Data buku ke-',banyakdata);
             writeln('Jenis surat : ');readln(surat[banyakdata].jenis_surat);
             writeln('Perihal Surat : ');readln(surat[banyakdata].perihal);
-            writeln('no surat : ');readln(surat[tambahdata].no_surat);
-            writeln('Pengirim : ');readln(surat[tambahdata].pengirim);
+            writeln('no surat : ');readln(surat[banyakdata].no_surat);
+            writeln('Pengirim : ');readln(surat[banyakdata].pengirim);
         end
     else 
         begin
@@ -63,6 +68,24 @@ end;
 
 //Yusuf
 procedure bacaFile();
+    var
+        f:file of TSurat;
+        i:integer;
+    begin
+        if FileExists(namafile) then 
+            begin
+                assign(f,namafile);
+                reset(f);
+                while not eof(f) do 
+                    begin
+                        banyakdata:=banyakdata+1;
+                        read(f,surat[banyakdata]);
+                    end;
+                close(f);
+        writeln('File tidak ditemukan');
+    end;
+
+
 
 //Alif
 procedure ubah_data();
@@ -101,13 +124,14 @@ begin
     begin
         writeln('Data ditemukan diposisi ke-',i);
 
-        writeln('------------------------------------------------------------');
-        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
-        writeln('------------------------------------------------------------');
-        gotoxy(3,  7);write(surat[i].no_surat);
-        gotoxy(16, 7);write(surat[i].perihal);
-        gotoxy(35, 7);write(surat[i].jenis_surat);
-        gotoxy(49, 7);write(surat[i].pengirim);
+        writeln('--------------------------------------------------------------------');
+        writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+        writeln('--------------------------------------------------------------------');
+        gotoxy(2, 7);write(i);
+        gotoxy(8, 7);write(surat[i].no_surat);
+        gotoxy(21, 7);write(surat[i].perihal);
+        gotoxy(40, 7);write(surat[i].jenis_surat);
+        gotoxy(56, 7);write(surat[i].pengirim);
         
         writeln();
         end
@@ -131,13 +155,14 @@ begin
     begin 
         writeln('Data ditemukan diposisi ke-',i);
 
-        writeln('------------------------------------------------------------');
-        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
-        writeln('------------------------------------------------------------');
-        gotoxy(3,  7);write(surat[i].no_surat);
-        gotoxy(16, 7);write(surat[i].perihal);
-        gotoxy(35, 7);write(surat[i].jenis_surat);
-        gotoxy(49, 7);write(surat[i].pengirim);
+        writeln('--------------------------------------------------------------------');
+        writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+        writeln('--------------------------------------------------------------------');
+        gotoxy(2, 7);write(i);
+        gotoxy(8, 7);write(surat[i].no_surat);
+        gotoxy(21, 7);write(surat[i].perihal);
+        gotoxy(40, 7);write(surat[i].jenis_surat);
+        gotoxy(56, 7);write(surat[i].pengirim);
         
         writeln();
         end
@@ -161,13 +186,14 @@ begin
     begin 
         writeln('Data ditemukan diposisi ke-',i);
 
-        writeln('------------------------------------------------------------');
-        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
-        writeln('------------------------------------------------------------');
-        gotoxy(3, 7);write(surat[i].no_surat);
-        gotoxy(16, 7);write(surat[i].perihal);
-        gotoxy(35, 7);write(surat[i].jenis_surat);
-        gotoxy(49, 7);write(surat[i].pengirim);
+        writeln('--------------------------------------------------------------------');
+        writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+        writeln('--------------------------------------------------------------------');
+        gotoxy(2, 7);write(i);
+        gotoxy(8, 7);write(surat[i].no_surat);
+        gotoxy(21, 7);write(surat[i].perihal);
+        gotoxy(40, 7);write(surat[i].jenis_surat);
+        gotoxy(56, 7);write(surat[i].pengirim);
         
         writeln();
         end
@@ -191,13 +217,14 @@ begin
     begin 
         writeln('Data ditemukan diposisi ke-',i);
 
-        writeln('------------------------------------------------------------');
-        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
-        writeln('------------------------------------------------------------');
-        gotoxy(3,  7);write(surat[i].no_surat);
-        gotoxy(16, 7);write(surat[i].perihal);
-        gotoxy(35, 7);write(surat[i].jenis_surat);
-        gotoxy(49, 7);write(surat[i].pengirim);
+        writeln('--------------------------------------------------------------------');
+        writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+        writeln('--------------------------------------------------------------------');
+        gotoxy(2, 7);write(i);
+        gotoxy(8, 7);write(surat[i].no_surat);
+        gotoxy(21, 7);write(surat[i].perihal);
+        gotoxy(40, 7);write(surat[i].jenis_surat);
+        gotoxy(56, 7);write(surat[i].pengirim);
         
         writeln();
         end
@@ -266,6 +293,6 @@ begin
             0 : ;
             else writeln('pilihan tidak dikenal');
         end;
-    until (pilihan_menu = 0);
+    until pilihan_menu = 0;
     //simpanFila();
 end.
