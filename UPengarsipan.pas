@@ -12,4 +12,6 @@ begin
     //yusuf
     writeln('Yusuf');
     writeln('alif cabul ');
+
+    readln();
 end.
