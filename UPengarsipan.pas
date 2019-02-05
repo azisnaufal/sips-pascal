@@ -9,4 +9,5 @@ begin
 
     //yusuf
     writeln('Yusuf');
+    writeln('alif cabul ');
 end.
