@@ -67,7 +67,7 @@ procedure bacaFile();
         f:file of TSurat;
         i:integer;
     begin
-        if FileExists(namafile)
+        if FileExists(namafile) then 
             begin
                 assign(f,namafile) then 
                 reset(f);
