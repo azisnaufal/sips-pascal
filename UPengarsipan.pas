@@ -70,7 +70,6 @@ end;
 procedure bacaFile;
     var
         f:file of TSurat;
-        i:integer;
     begin
         if FileExists(namafile) then 
             begin
@@ -85,7 +84,6 @@ procedure bacaFile;
             end;
         writeln('File tidak ditemukan');
     end;
-
 
 
 //Alif
