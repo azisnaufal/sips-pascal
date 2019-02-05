@@ -18,6 +18,13 @@ var
     banyakdata : integer;
     pilihan_menu : integer;
 
+procedure hapus_data();
+var
+    i : integer;
+begin
+    clrscr;
+    writeln('');
+end;
 
 procedure lihat_data();
 var
