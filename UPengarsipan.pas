@@ -46,7 +46,19 @@ end;
 //yusuf
 procedure tambah_data();
 begin
-    
+    if banyakdata<maks then 
+        begin
+            banyakdata:=banyakdata+1;
+            writeln('Data buku ke-',banyakdata);
+            writeln('Jenis surat : ');readln(surat[banyakdata].jenis_surat);
+            writeln('Perihal Surat : ');readln(surat[banyakdata].perihal);
+            writeln('no surat : ');readln(surat[tambahdata].no_surat);
+            writeln('Pengirim : ');readln(surat[tambahdata].pengirim);
+        end
+    else 
+        begin
+            writeln('banyak data sudah mencapai batas maksimum');
+        end;
 end;
 
 //Yusuf
