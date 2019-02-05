@@ -8,7 +8,7 @@ const
 type
     TSurat = record 
         jenis_surat : string[10];
-        perihal : string[20];
+        perihal : string[16];
         no_surat : string[10];
         pengirim : string[10];
     end;
@@ -20,8 +20,27 @@ var
 
 
 procedure lihat_data();
+var
+    i : integer;
 begin
-    
+    if (banyakdata>0) then
+    begin
+        clrscr;
+            //   000000000111111111122222222223333333333444444444455555555556
+            //   123456789012345678901234567890123456789012345678901234567890
+        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
+        writeln('------------------------------------------------------------');
+        for i:= 1 to banyakdata do
+        begin
+            gotoxy(3, i+3);write(surat[i].no_surat);
+            gotoxy(16, i+3);write(surat[i].perihal);
+            gotoxy(35, i+3);write(surat[i].jenis_surat);
+            gotoxy(49, i+3);write(surat[i].pengirim);
+        end;
+        writeln();
+        writeln('Tekan enter untuk melanjutkan.');
+        readln();
+    end;
 end;
 
 //yusuf
