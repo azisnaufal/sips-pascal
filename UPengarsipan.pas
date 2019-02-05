@@ -83,11 +83,67 @@ var
 begin
     clrscr;
     writeln('Pencarian Berdasarkan Jenis');
-    write('Jenis yang dicari    : ')readln(dicari);
+    write('Jenis yang dicari    : ');readln(dicari);
     i:=1
     while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
         i:=i+1;
     if barang[i].Jenis = dicari then 
+        writeln('Data ditemukan diposisi ke-',i);
+
+        writeln('------------------------------------------------------------');
+        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
+        writeln('------------------------------------------------------------');
+        gotoxy(3,  7);write(surat[i].no_surat);
+        gotoxy(16, 7);write(surat[i].perihal);
+        gotoxy(35, 7);write(surat[i].jenis_surat);
+        gotoxy(49, 7);write(surat[i].pengirim);
+        
+        writeln();
+    else
+        writeln('Maaf Data Tidak Ditemukan');
+    readln
+end;
+
+procedure Pencarian_Perihal;
+var 
+    i:integer;
+    dicari:string[16];
+begin
+    clrscr;
+    writeln('Pencarian Berdasarkan Perihal');
+    write('Perihal yang dicari    : ');readln(dicari);
+    i:=1
+    while(baranng[i].Perihal <> dicari) and (i < banyakdata) do 
+        i:=i+1;
+    if barang[i].Perihal = dicari then 
+        writeln('Data ditemukan diposisi ke-',i);
+
+        writeln('------------------------------------------------------------');
+        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
+        writeln('------------------------------------------------------------');
+        gotoxy(3,  7);write(surat[i].no_surat);
+        gotoxy(16, 7);write(surat[i].perihal);
+        gotoxy(35, 7);write(surat[i].jenis_surat);
+        gotoxy(49, 7);write(surat[i].pengirim);
+        
+        writeln();
+    else
+        writeln('Maaf Data Tidak Ditemukan');
+    readln
+end;
+
+procedure Pencarian_Nomor_Surat;
+var 
+    i:integer;
+    dicari:string[10];
+begin
+    clrscr;
+    writeln('Pencarian Berdasarkan Nomor Surat');
+    write('Nomor Surat yang dicari    : ');readln(dicari);
+    i:=1
+    while(baranng[i].Nomor_Surat <> dicari) and (i < banyakdata) do 
+        i:=i+1;
+    if barang[i].Nomor_Surat = dicari then 
         writeln('Data ditemukan diposisi ke-',i);
 
         writeln('------------------------------------------------------------');
@@ -104,52 +160,29 @@ begin
     readln
 end;
 
-procedure Pencarian_Perihal;
-var 
-    i:integer;
-    dicari:string[16];
-begin
-    writeln('Pencarian Berdasarkan Jenis');
-    write('Jenis yang dicari    : ')readln(dicari);
-    i:=1
-    while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
-        i:=i+1;
-    if barang[i].Jenis = dicari then 
-        writeln('Data ditemukan diposisi ke-',i);
-    else
-        writeln('Maaf Data Tidak Ditemukan');
-    readln
-end;
-
-procedure Pencarian_Nomor_Surat;
-var 
-    i:integer;
-    dicari:string[10];
-begin
-    writeln('Pencarian Berdasarkan Jenis');
-    write('Jenis yang dicari    : ')readln(dicari);
-    i:=1
-    while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
-        i:=i+1;
-    if barang[i].Jenis = dicari then 
-        writeln('Data ditemukan diposisi ke-',i);
-    else
-        writeln('Maaf Data Tidak Ditemukan');
-    readln
-end;
-
 procedure Pencarian_Pengirim;
 var 
     i:integer;
     dicari:string[10];
 begin
-    writeln('Pencarian Berdasarkan Jenis');
-    write('Jenis yang dicari    : ')readln(dicari);
+    clrscr;
+    writeln('Pencarian Berdasarkan Pengirim');
+    write('Pengirim yang dicari    : ');readln(dicari);
     i:=1
-    while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
+    while(baranng[i].Pengirim <> dicari) and (i < banyakdata) do 
         i:=i+1;
-    if barang[i].Jenis = dicari then 
+    if barang[i].Pengirim = dicari then 
         writeln('Data ditemukan diposisi ke-',i);
+
+        writeln('------------------------------------------------------------');
+        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
+        writeln('------------------------------------------------------------');
+        gotoxy(3,  7);write(surat[i].no_surat);
+        gotoxy(16, 7);write(surat[i].perihal);
+        gotoxy(35, 7);write(surat[i].jenis_surat);
+        gotoxy(49, 7);write(surat[i].pengirim);
+        
+        writeln();
     else
         writeln('Maaf Data Tidak Ditemukan');
     readln
@@ -209,7 +242,7 @@ begin
             1 : lihat_data();
             2 : tambah_data();
             3 : ubah_data();
-             4 : hapus_data();
+            4 : hapus_data();
             5 : urutkan_data();
             6 : cari_data();
             0 : ;
