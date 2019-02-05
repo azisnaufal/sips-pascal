@@ -33,6 +33,7 @@ end;
 //Yusuf
 procedure bacaFile();
 
+//Alif
 procedure ubah_data();
 begin
     
@@ -43,6 +44,7 @@ begin
     
 end;
 
+//Alif
 procedure cari_data();
 begin
     
