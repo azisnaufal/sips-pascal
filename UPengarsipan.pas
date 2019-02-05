@@ -69,13 +69,24 @@ var
     i:integer;
     dicari:string[10];
 begin
+    clrscr;
     writeln('Pencarian Berdasarkan Jenis');
     write('Jenis yang dicari    : ')readln(dicari);
     i:=1
     while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
         i:=i+1;
     if barang[i].Jenis = dicari then 
-        writeln('Data ditemukan diposisi ke-',i)
+        writeln('Data ditemukan diposisi ke-',i);
+
+        writeln('------------------------------------------------------------');
+        writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
+        writeln('------------------------------------------------------------');
+        gotoxy(3, i+6);write(surat[i].no_surat);
+        gotoxy(16, i+6);write(surat[i].perihal);
+        gotoxy(35, i+6);write(surat[i].jenis_surat);
+        gotoxy(49, i+6);write(surat[i].pengirim);
+        
+        writeln();
     else
         writeln('Maaf Data Tidak Ditemukan');
     readln
@@ -92,7 +103,7 @@ begin
     while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
         i:=i+1;
     if barang[i].Jenis = dicari then 
-        writeln('Data ditemukan diposisi ke-',i)
+        writeln('Data ditemukan diposisi ke-',i);
     else
         writeln('Maaf Data Tidak Ditemukan');
     readln
@@ -109,7 +120,7 @@ begin
     while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
         i:=i+1;
     if barang[i].Jenis = dicari then 
-        writeln('Data ditemukan diposisi ke-',i)
+        writeln('Data ditemukan diposisi ke-',i);
     else
         writeln('Maaf Data Tidak Ditemukan');
     readln
@@ -126,7 +137,7 @@ begin
     while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
         i:=i+1;
     if barang[i].Jenis = dicari then 
-        writeln('Data ditemukan diposisi ke-',i)
+        writeln('Data ditemukan diposisi ke-',i);
     else
         writeln('Maaf Data Tidak Ditemukan');
     readln
