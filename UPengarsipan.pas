@@ -7,6 +7,6 @@ begin
     writeln('Nama surat : ');
     writeln('Tanggal    : ');
     writeln('Pengirim   : ');
-
+    writeln('Penerima   : ');
     //yusuf
 end.
