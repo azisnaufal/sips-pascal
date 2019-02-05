@@ -52,8 +52,8 @@ begin
             writeln('Data buku ke-',banyakdata);
             writeln('Jenis surat : ');readln(surat[banyakdata].jenis_surat);
             writeln('Perihal Surat : ');readln(surat[banyakdata].perihal);
-            writeln('no surat : ');readln(surat[tambahdata].no_surat);
-            writeln('Pengirim : ');readln(surat[tambahdata].pengirim);
+            writeln('no surat : ');readln(surat[banyakdata].no_surat);
+            writeln('Pengirim : ');readln(surat[banyakdata].pengirim);
         end
     else 
         begin
