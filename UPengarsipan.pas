@@ -27,6 +27,7 @@ procedure tambah_data();
 begin
     
 end;
+
 //Alif
 procedure ubah_data();
 begin
