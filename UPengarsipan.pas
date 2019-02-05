@@ -81,10 +81,10 @@ begin
         writeln('------------------------------------------------------------');
         writeln('|  NO SURAT  |      PERIHAL     | JENIS SURAT |  PENGIRIM  |');
         writeln('------------------------------------------------------------');
-        gotoxy(3, i+6);write(surat[i].no_surat);
-        gotoxy(16, i+6);write(surat[i].perihal);
-        gotoxy(35, i+6);write(surat[i].jenis_surat);
-        gotoxy(49, i+6);write(surat[i].pengirim);
+        gotoxy(3, 7);write(surat[i].no_surat);
+        gotoxy(16, 7);write(surat[i].perihal);
+        gotoxy(35, 7);write(surat[i].jenis_surat);
+        gotoxy(49, 7);write(surat[i].pengirim);
         
         writeln();
     else
