@@ -67,7 +67,7 @@ begin
 end;
 
 //Yusuf
-procedure bacaFile();
+procedure bacaFile;
     var
         f:file of TSurat;
         i:integer;
@@ -82,6 +82,7 @@ procedure bacaFile();
                         read(f,surat[banyakdata]);
                     end;
                 close(f);
+            end;
         writeln('File tidak ditemukan');
     end;
 
