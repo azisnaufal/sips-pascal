@@ -64,9 +64,93 @@ begin
 end;
 
 //Alif
-procedure cari_data();
+procedure Pencarian_Jenis;
+var 
+    i:integer;
+    dicari:string[10];
 begin
-    
+    writeln('Pencarian Berdasarkan Jenis');
+    write('Jenis yang dicari    : ')readln(dicari);
+    i:=1
+    while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
+        i:=i+1;
+    if barang[i].Jenis = dicari then 
+        writeln('Data ditemukan diposisi ke-',i)
+    else
+        writeln('Maaf Data Tidak Ditemukan');
+    readln
+end;
+
+procedure Pencarian_Perihal;
+var 
+    i:integer;
+    dicari:string[10];
+begin
+    writeln('Pencarian Berdasarkan Jenis');
+    write('Jenis yang dicari    : ')readln(dicari);
+    i:=1
+    while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
+        i:=i+1;
+    if barang[i].Jenis = dicari then 
+        writeln('Data ditemukan diposisi ke-',i)
+    else
+        writeln('Maaf Data Tidak Ditemukan');
+    readln
+end;
+
+procedure Pencarian_Nomor_Surat;
+var 
+    i:integer;
+    dicari:string[10];
+begin
+    writeln('Pencarian Berdasarkan Jenis');
+    write('Jenis yang dicari    : ')readln(dicari);
+    i:=1
+    while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
+        i:=i+1;
+    if barang[i].Jenis = dicari then 
+        writeln('Data ditemukan diposisi ke-',i)
+    else
+        writeln('Maaf Data Tidak Ditemukan');
+    readln
+end;
+
+procedure Pencarian_Pengirim;
+var 
+    i:integer;
+    dicari:string[10];
+begin
+    writeln('Pencarian Berdasarkan Jenis');
+    write('Jenis yang dicari    : ')readln(dicari);
+    i:=1
+    while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
+        i:=i+1;
+    if barang[i].Jenis = dicari then 
+        writeln('Data ditemukan diposisi ke-',i)
+    else
+        writeln('Maaf Data Tidak Ditemukan');
+    readln
+end;
+
+procedure cari_data();
+var 
+    pil:integer;
+begin
+    writeln('Menu Pencarian Data' );
+    writeln('-------------------' );
+    writeln('1. Berdasarkan Jenis');
+    writeln('2. Berdasarkan Perihal');
+    writeln('3. Berdasarkan Nomor Surat');
+    writeln('4. Berdasarkan pengirim');
+    write('Pilihan Anda : ');
+    readln(pil);
+    case pil of 
+        1 : Pencarian_Jenis;
+        2 : Pencarian_Perihal;
+        3 : Pencarian_Nomor_Surat;
+        4 : Pencarian_Pengirim;
+        else writeln('Pilihan tidak ditemukan');
+    end;
 end;
 
 function menu() : integer;
@@ -102,7 +186,7 @@ begin
             1 : lihat_data();
             2 : tambah_data();
             3 : ubah_data();
-            4 : hapus_data();
+             4 : hapus_data();
             5 : urutkan_data();
             6 : cari_data();
             0 : ;
