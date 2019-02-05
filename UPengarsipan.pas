@@ -96,10 +96,20 @@ procedure bacaFile();
 
 //Alif
 procedure ubah_data();
+var 
+    i:integer;
 begin
-    
+    clrscr;
+    writeln('Data Nomor Berapa Yang Ingin Diubah : ');readln(i);
+    writeln('Jenis Surat   : ');readln(surat[i].jenis_surat);
+    writeln('Perihal Surat : ');readln(surat[i].perihal);
+    writeln('Nomor Surat : ');readln(surat[i].no_surat);
+    writeln('Pengirim : ');readln(surat[i].pengirim);
+    writeln('Data  Berhasil Diubah');
+    readln();
 end;
 
+//Alif
 procedure urutkan_data();
 begin
     
