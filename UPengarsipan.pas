@@ -6,4 +6,5 @@ begin
     //alif
 
     //yusuf
+    writeln('Yusuf');
 end.
