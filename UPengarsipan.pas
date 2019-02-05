@@ -63,6 +63,24 @@ end;
 
 //Yusuf
 procedure bacaFile();
+    var
+        f:file of TSurat;
+        i:integer;
+    begin
+        if FileExists(namafile)
+            begin
+                assign(f,namafile) then 
+                reset(f);
+                while not eof(f) do 
+                    begin
+                        banyakdata:=banyakdata+1;
+                        read(f,surat[banyakdata]);
+                    end;
+                close(f);
+        writeln('File tidak ditemukan');
+    end;
+
+
 
 //Alif
 procedure ubah_data();
