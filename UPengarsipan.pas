@@ -167,7 +167,7 @@ begin
             1 : lihat_data();
             2 : tambah_data();
             3 : ubah_data();
-            4 : hapus_data();
+             4 : hapus_data();
             5 : urutkan_data();
             6 : cari_data();
             0 : ;
