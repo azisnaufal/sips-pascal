@@ -1,10 +1,10 @@
 program UPengarsipan;
+uses crt, sysutils;
 
 begin
     writeln('coba');
     
     //alif
-    uses crt, sysutils;
       writeln('Program Pengarsipan Surat');
       writeln('Nama surat : ');
       writeln('Tanggal    : ');
