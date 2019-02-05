@@ -18,15 +18,20 @@ var
     banyakdata : integer;
     pilihan_menu : integer;
 
+
 procedure lihat_data();
 begin
     
 end;
 
+//yusuf
 procedure tambah_data();
 begin
     
 end;
+
+//Yusuf
+procedure bacaFile();
 
 procedure ubah_data();
 begin
