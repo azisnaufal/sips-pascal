@@ -5,7 +5,6 @@ begin
     writeln('Program Pengarsipan Surat');
     
     //alif
-      writeln('Program Pengarsipan Surat');
       writeln('Nama surat : ');
       writeln('Tanggal    : ');
       writeln('Pengirim   : ');
