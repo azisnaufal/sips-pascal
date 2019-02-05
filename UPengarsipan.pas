@@ -2,7 +2,7 @@ program UPengarsipan;
 uses crt, sysutils;
 
 begin
-    writeln('coba');
+    writeln('Program Pengarsipan Surat');
     
     //alif
       writeln('Program Pengarsipan Surat');
