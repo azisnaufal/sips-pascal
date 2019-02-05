@@ -69,7 +69,7 @@ procedure bacaFile();
     begin
         if FileExists(namafile) then 
             begin
-                assign(f,namafile) then 
+                assign(f,namafile);
                 reset(f);
                 while not eof(f) do 
                     begin
