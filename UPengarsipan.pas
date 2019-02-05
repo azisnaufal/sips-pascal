@@ -71,7 +71,7 @@ var
 begin
     clrscr;
     writeln('Pencarian Berdasarkan Jenis');
-    write('Jenis yang dicari    : ')readln(dicari);
+    write('Jenis yang dicari    : ');readln(dicari);
     i:=1
     while(baranng[i].Jenis <> dicari) and (i < banyakdata) do 
         i:=i+1;
@@ -99,7 +99,7 @@ var
 begin
     clrscr;
     writeln('Pencarian Berdasarkan Perihal');
-    write('Perihal yang dicari    : ')readln(dicari);
+    write('Perihal yang dicari    : ');readln(dicari);
     i:=1
     while(baranng[i].Perihal <> dicari) and (i < banyakdata) do 
         i:=i+1;
@@ -127,7 +127,7 @@ var
 begin
     clrscr;
     writeln('Pencarian Berdasarkan Nomor Surat');
-    write('Nomor Surat yang dicari    : ')readln(dicari);
+    write('Nomor Surat yang dicari    : ');readln(dicari);
     i:=1
     while(baranng[i].Nomor_Surat <> dicari) and (i < banyakdata) do 
         i:=i+1;
@@ -155,7 +155,7 @@ var
 begin
     clrscr;
     writeln('Pencarian Berdasarkan Pengirim');
-    write('Pengirim yang dicari    : ')readln(dicari);
+    write('Pengirim yang dicari    : ');readln(dicari);
     i:=1
     while(baranng[i].Pengirim <> dicari) and (i < banyakdata) do 
         i:=i+1;
