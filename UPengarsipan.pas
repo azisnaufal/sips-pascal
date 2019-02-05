@@ -18,6 +18,31 @@ var
     banyakdata : integer;
     pilihan_menu : integer;
 
+procedure lihat_data();
+begin
+    
+end;
+
+procedure tambah_data();
+begin
+    
+end;
+
+procedure ubah_data();
+begin
+    
+end;
+
+procedure urutkan_data();
+begin
+    
+end;
+
+procedure cari_data();
+begin
+    
+end;
+
 function menu() : integer;
 var
     pil : integer;
@@ -40,12 +65,13 @@ begin
     write('Pilihan anda: ');readln(pil);
     menu := pil;
 end;
+
 begin
     banyakdata:=0;
     //bacaFile();
     repeat
         clrscr;
-        pilihan_menu : menu();
+        pilihan_menu := menu();
         case pilihan of
             1 : lihat_data();
             2 : tambah_data();
