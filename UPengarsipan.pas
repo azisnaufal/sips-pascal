@@ -57,8 +57,8 @@ begin
             writeln('Data buku ke-',banyakdata);
             writeln('Jenis surat : ');readln(surat[banyakdata].jenis_surat);
             writeln('Perihal Surat : ');readln(surat[banyakdata].perihal);
-            writeln('no surat : ');readln(surat[tambahdata].no_surat);
-            writeln('Pengirim : ');readln(surat[tambahdata].pengirim);
+            writeln('no surat : ');readln(surat[banyakdata].no_surat);
+            writeln('Pengirim : ');readln(surat[banyakdata].pengirim);
         end
     else 
         begin
@@ -68,6 +68,24 @@ end;
 
 //Yusuf
 procedure bacaFile();
+    var
+        f:file of TSurat;
+        i:integer;
+    begin
+        if FileExists(namafile) then 
+            begin
+                assign(f,namafile);
+                reset(f);
+                while not eof(f) do 
+                    begin
+                        banyakdata:=banyakdata+1;
+                        read(f,surat[banyakdata]);
+                    end;
+                close(f);
+        writeln('File tidak ditemukan');
+    end;
+
+
 
 //Alif
 procedure ubah_data();
