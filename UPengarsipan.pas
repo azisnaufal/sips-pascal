@@ -21,9 +21,46 @@ var
 procedure hapus_data();
 var
     i : integer;
+    confirm : char;
+    temp : TSurat;
 begin
     clrscr;
-    writeln('');
+    writeln('Data nomor berapa yang ingin dihapus (1 - ', banyakdata, ') ? ');
+    readln(i);
+    writeln('Apakah anda yakin ? [Y/T] ');
+    readln(confirm);
+    if (confirm = 'y' ) or (confirm ='Y') then
+    begin
+        if (i <= banyakdata) then
+        begin
+            //hapus data
+            surat[i].jenis_surat := '';
+            surat[i].perihal := '';
+            surat[i].no_surat := '';
+            surat[i].pengirim := '';
+            i := i + 1;
+            while (surat[i].jenis_surat <> '')
+            begin
+                //tukar data
+                temp := surat[i];
+                surat[i] := surat[i-1];
+                surat[i-1] := temp;
+            end;
+            writeln('Penghapusan data sukses');
+            writeln('Tekan enter untuk melanjutkan');
+            readln();
+        end
+        else
+        begin
+
+        end;
+    end
+    else
+    begin
+        writeln('Penghapusan data dibatalkan');
+        writeln('Tekan enter untuk melanjutkan');
+        readln();
+    end;
 end;
 
 procedure lihat_data();
