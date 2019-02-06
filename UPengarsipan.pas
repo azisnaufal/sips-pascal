@@ -39,7 +39,7 @@ begin
             surat[i].no_surat := '';
             surat[i].pengirim := '';
             i := i + 1;
-            while (surat[i].jenis_surat <> '')
+            while (surat[i].jenis_surat <> '') do
             begin
                 //tukar data
                 temp := surat[i];
@@ -195,7 +195,7 @@ begin
         clrscr;
             writeln('1. Pengurutan Ascending');
             writeln('2. Pengurutan Descending');
-            writeln('0. Kembali')
+            writeln('0. Kembali');
             writeln('--------------------------------------');
             writeln('Pilihan Anda : ');readln(pil);
             case pil of 
@@ -253,10 +253,10 @@ var
     pil:integer;
 begin
      repeat
-        clrscr
+        clrscr;
             writeln('1. Pengurutan Ascending');
             writeln('2. Pengurutan Descending');
-            writeln('0. Kembali')
+            writeln('0. Kembali');
             writeln('--------------------------------------');
             writeln('Pilihan Anda : ');readln(pil);
             case pil of 
@@ -268,7 +268,7 @@ begin
 end;
 
 // Selection Sort Ascending
-procedure pengurutan_no_surat_asc
+procedure pengurutan_no_surat_asc;
 var 
     i:integer;
     temp:TSurat;
@@ -281,10 +281,10 @@ var
     pil:integer;
 begin
      repeat
-        clrscr
+        clrscr;
             writeln('1. Pengurutan Ascending');
             writeln('2. Pengurutan Descending');
-            writeln('0. Kembali')
+            writeln('0. Kembali');
             writeln('--------------------------------------');
             writeln('Pilihan Anda : ');readln(pil);
             case pil of 
@@ -301,7 +301,7 @@ var
     pil:integer;
 begin
     repeat
-        clrscr
+        clrscr;
             writeln('1. Pengurutan Berdasarkan Jenis');
             writeln('2. Pengurutan Berdasarkan Perihal');
             writeln('3. Pengurutan Berdasarkan Nomor Surat');
@@ -312,8 +312,8 @@ begin
             case pil of 
                 1:pengurutan_jenis();
                 2:pengurutan_perihal();
-                3.pengurutan_no_surat();
-                4.pengurutan_pengirim();
+                3:pengurutan_no_surat();
+                4:pengurutan_pengirim();
                 0:;
             end;
     until pil = 0;
