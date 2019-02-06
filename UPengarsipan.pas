@@ -102,6 +102,7 @@ begin
 end;
 
 //Alif
+// Bubble Sort Ascending
 procedure pengurutan_jenis_asc;
 var
     tahap, i:integer;
@@ -121,7 +122,7 @@ begin
     end;
     writeln('Pengurutan Berdasarkan Jenis Surat Selesai');readln;
 end;
-
+// Bubble Sort Descending
 procedure pengurutan_jenis_dsc;
 var
     tahap, i:integer;
@@ -162,7 +163,7 @@ begin
 end;
 
 
-
+// Bubble Sort Ascending
 procedure pengurutan_perihal_asc;
 var
     tahap, i:integer;
@@ -182,7 +183,7 @@ begin
     end;
     writeln('Pengurutan Berdasarkan Jenis Surat Selesai');readln;
 end;
-
+// Bubble Sort Descending
 procedure pengurutan_perihal_dsc;
 var
     tahap, i:integer;
@@ -222,6 +223,33 @@ begin
     until pil = 0;
 end;
 
+// Selection Sort Ascending
+procedure pengurutan_no_surat_asc
+var 
+    i:integer;
+    temp:TSurat;
+begin
+    i
+end;
+
+procedure pengurutan_perihal;
+var
+    pil:integer;
+begin
+     repeat
+        clrscr
+            writeln('1. Pengurutan Ascending');
+            writeln('2. Pengurutan Descending');
+            writeln('0. Kembali')
+            writeln('--------------------------------------');
+            writeln('Pilihan Anda : ');readln(pil);
+            case pil of 
+                1:pengurutan_no_surat_asc();
+                2:pengurutan_no_surat_dsc();
+                0:;
+            end;
+    until pil = 0;
+end;
 
 
 procedure urutkan_data();
