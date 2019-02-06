@@ -70,7 +70,6 @@ end;
 procedure bacaFile;
     var
         f:file of TSurat;
-        i:integer;
     begin
         if FileExists(namafile) then 
             begin
@@ -85,6 +84,7 @@ procedure bacaFile;
             end;
         writeln('File tidak ditemukan');
     end;
+
 
 //Alif
 procedure ubah_data();
@@ -148,7 +148,7 @@ var
     pil:integer;
 begin
      repeat
-        clrscr
+        clrscr;
             writeln('1. Pengurutan Ascending');
             writeln('2. Pengurutan Descending');
             writeln('0. Kembali')
