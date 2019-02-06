@@ -111,10 +111,9 @@ begin
 end;
 
 //Yusuf
-procedure bacaFile();
+procedure bacaFile;
     var
         f:file of TSurat;
-        i:integer;
     begin
         if FileExists(namafile) then 
             begin
@@ -126,9 +125,9 @@ procedure bacaFile();
                         read(f,surat[banyakdata]);
                     end;
                 close(f);
+            end;
         writeln('File tidak ditemukan');
     end;
-
 
 
 //Alif
@@ -147,9 +146,177 @@ begin
 end;
 
 //Alif
-procedure urutkan_data();
+// Bubble Sort Ascending
+procedure pengurutan_jenis_asc;
+var
+    tahap, i:integer;
+    temp:TSurat;
 begin
-    
+    for tahap := 1 to banyakdata -1 do
+    begin
+        for i:=banyakdata downto 2 do
+        begin    
+            if surat[i].jenis_surat < surat[i-1].jenis_surat then
+            begin
+                temp:=surat[i];
+                surat[i]:=surat[i-1];
+                surat[i-1]:=temp;
+            end;
+        end;
+    end;
+    writeln('Pengurutan Berdasarkan Jenis Surat Selesai');readln;
+end;
+// Bubble Sort Descending
+procedure pengurutan_jenis_dsc;
+var
+    tahap, i:integer;
+    temp:TSurat;
+begin
+    for tahap := 1 to banyakdata -1 do
+    begin
+        for i:=banyakdata downto i+1 do
+        begin    
+            if surat[i].jenis_surat > surat[i-1].jenis_surat then
+            begin
+                temp:=surat[i];
+                surat[i]:=surat[i-1];
+                surat[i-1]:=temp;
+            end;
+        end;
+    end;
+    writeln('Pengurutan Berdasarkan Jenis Surat Selesai');readln;
+end;
+
+procedure pengurutan_jenis;
+var
+    pil:integer;
+begin
+     repeat
+        clrscr;
+            writeln('1. Pengurutan Ascending');
+            writeln('2. Pengurutan Descending');
+            writeln('0. Kembali')
+            writeln('--------------------------------------');
+            writeln('Pilihan Anda : ');readln(pil);
+            case pil of 
+                1:pengurutan_jenis_asc();
+                2:pengurutan_jenis_dsc();
+                0:;
+            end;
+    until pil = 0;
+end;
+
+
+// Bubble Sort Ascending
+procedure pengurutan_perihal_asc;
+var
+    tahap, i:integer;
+    temp:TSurat;
+begin
+    for tahap := 1 to banyakdata -1 do
+    begin
+        for i:=banyakdata downto 2 do
+        begin    
+            if surat[i].jenis_surat < surat[i-1].jenis_surat then
+            begin
+                temp:=surat[i];
+                surat[i]:=surat[i-1];
+                surat[i-1]:=temp;
+            end;
+        end;
+    end;
+    writeln('Pengurutan Berdasarkan Jenis Surat Selesai');readln;
+end;
+// Bubble Sort Descending
+procedure pengurutan_perihal_dsc;
+var
+    tahap, i:integer;
+    temp:TSurat;
+begin
+    for tahap := 1 to banyakdata -1 do
+    begin
+        for i:=banyakdata downto i+1 do
+        begin    
+            if surat[i].jenis_surat > surat[i-1].jenis_surat then
+            begin
+                temp:=surat[i];
+                surat[i]:=surat[i-1];
+                surat[i-1]:=temp;
+            end;
+        end;
+    end;
+    writeln('Pengurutan Berdasarkan Jenis Surat Selesai');readln;
+end;
+
+procedure pengurutan_perihal;
+var
+    pil:integer;
+begin
+     repeat
+        clrscr
+            writeln('1. Pengurutan Ascending');
+            writeln('2. Pengurutan Descending');
+            writeln('0. Kembali')
+            writeln('--------------------------------------');
+            writeln('Pilihan Anda : ');readln(pil);
+            case pil of 
+                1:pengurutan_perihal_asc();
+                2:pengurutan_perihal_dsc();
+                0:;
+            end;
+    until pil = 0;
+end;
+
+// Selection Sort Ascending
+procedure pengurutan_no_surat_asc
+var 
+    i:integer;
+    temp:TSurat;
+begin
+    i
+end;
+
+procedure pengurutan_perihal;
+var
+    pil:integer;
+begin
+     repeat
+        clrscr
+            writeln('1. Pengurutan Ascending');
+            writeln('2. Pengurutan Descending');
+            writeln('0. Kembali')
+            writeln('--------------------------------------');
+            writeln('Pilihan Anda : ');readln(pil);
+            case pil of 
+                1:pengurutan_no_surat_asc();
+                2:pengurutan_no_surat_dsc();
+                0:;
+            end;
+    until pil = 0;
+end;
+
+
+procedure urutkan_data();
+var 
+    pil:integer;
+begin
+    repeat
+        clrscr
+            writeln('1. Pengurutan Berdasarkan Jenis');
+            writeln('2. Pengurutan Berdasarkan Perihal');
+            writeln('3. Pengurutan Berdasarkan Nomor Surat');
+            writeln('4. Pengurutan Berdasarkan Pengirim');
+            writeln('0. Keluar Menu Pengurutan ');
+            writeln('--------------------------------------');
+            writeln('Pilihan Anda : ');readln(pil);
+            case pil of 
+                1:pengurutan_jenis();
+                2:pengurutan_perihal();
+                3.pengurutan_no_surat();
+                4.pengurutan_pengirim();
+                0:;
+            end;
+    until pil = 0;
 end;
 
 //Alif
