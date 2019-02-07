@@ -268,12 +268,16 @@ begin
 end;
 
 // Selection Sort Ascending
+// Maximum sort Ascending
 procedure pengurutan_no_surat_asc;
 var 
-    i:integer;
+    tahap,maks,x,i:integer;
     temp:TSurat;
 begin
-    i
+    for tahap :=1 to banyakdata-1 do
+    begin
+        for i:=banyakdata to x do
+    end;
 end;
 
 procedure pengurutan_perihal;
