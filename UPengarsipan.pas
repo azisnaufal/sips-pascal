@@ -18,50 +18,6 @@ var
     banyakdata : integer;
     pilihan_menu : integer;
 
-procedure hapus_data();
-var
-    i : integer;
-    confirm : char;
-    temp : TSurat;
-begin
-    clrscr;
-    writeln('Data nomor berapa yang ingin dihapus (1 - ', banyakdata, ') ? ');
-    readln(i);
-    writeln('Apakah anda yakin ? [Y/T] ');
-    readln(confirm);
-    if (confirm = 'y' ) or (confirm ='Y') then
-    begin
-        if (i <= banyakdata) then
-        begin
-            //hapus data
-            surat[i].jenis_surat := '';
-            surat[i].perihal := '';
-            surat[i].no_surat := '';
-            surat[i].pengirim := '';
-            i := i + 1;
-            while (surat[i].jenis_surat <> '') do
-            begin
-                //tukar data
-                temp := surat[i];
-                surat[i] := surat[i-1];
-                surat[i-1] := temp;
-            end;
-            writeln('Penghapusan data sukses');
-            writeln('Tekan enter untuk melanjutkan');
-            readln();
-        end
-        else
-        begin
-
-        end;
-    end
-    else
-    begin
-        writeln('Penghapusan data dibatalkan');
-        writeln('Tekan enter untuk melanjutkan');
-        readln();
-    end;
-end;
 
 procedure lihat_data();
 var
@@ -191,11 +147,11 @@ procedure pengurutan_jenis;
 var
     pil:integer;
 begin
-     repeat
+     repeat 
         clrscr;
             writeln('1. Pengurutan Ascending');
             writeln('2. Pengurutan Descending');
-            writeln('0. Kembali');
+            writeln('0. Kembali')
             writeln('--------------------------------------');
             writeln('Pilihan Anda : ');readln(pil);
             case pil of 
@@ -253,10 +209,10 @@ var
     pil:integer;
 begin
      repeat
-        clrscr;
+        clrscr
             writeln('1. Pengurutan Ascending');
             writeln('2. Pengurutan Descending');
-            writeln('0. Kembali');
+            writeln('0. Kembali')
             writeln('--------------------------------------');
             writeln('Pilihan Anda : ');readln(pil);
             case pil of 
@@ -268,7 +224,7 @@ begin
 end;
 
 // Selection Sort Ascending
-procedure pengurutan_no_surat_asc;
+procedure pengurutan_no_surat_asc
 var 
     i:integer;
     temp:TSurat;
@@ -281,10 +237,10 @@ var
     pil:integer;
 begin
      repeat
-        clrscr;
+        clrscr
             writeln('1. Pengurutan Ascending');
             writeln('2. Pengurutan Descending');
-            writeln('0. Kembali');
+            writeln('0. Kembali')
             writeln('--------------------------------------');
             writeln('Pilihan Anda : ');readln(pil);
             case pil of 
@@ -301,7 +257,7 @@ var
     pil:integer;
 begin
     repeat
-        clrscr;
+        clrscr
             writeln('1. Pengurutan Berdasarkan Jenis');
             writeln('2. Pengurutan Berdasarkan Perihal');
             writeln('3. Pengurutan Berdasarkan Nomor Surat');
@@ -312,8 +268,8 @@ begin
             case pil of 
                 1:pengurutan_jenis();
                 2:pengurutan_perihal();
-                3:pengurutan_no_surat();
-                4:pengurutan_pengirim();
+                3.pengurutan_no_surat();
+                4.pengurutan_pengirim();
                 0:;
             end;
     until pil = 0;
