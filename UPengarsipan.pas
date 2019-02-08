@@ -36,6 +36,18 @@ procedure bacaFile; //Membaca file // Yusuf
         writeln('File tidak ditemukan');
     end;
 
+procedure simpanFile();
+    var
+        f:file of TSurat;
+        i:integer;
+    begin
+        assign(f,namafile);
+        rewrite(f);
+        for i:=1 to banyakdata do
+            write(f,surat[i]);
+        close(f);
+    end;
+
 procedure lihat_data; //menampilkan data // Azis
     var
         i : integer;
@@ -96,7 +108,50 @@ procedure ubah_data;//ubah data // alif
         readln();
     end;
 
-    
+procedure hapus_data;
+    var
+        i : integer;
+        yakin : char;
+        temp : TSurat;
+    begin
+        clrscr;
+        if (banyakdata <> 0) then 
+        begin
+            writeln('Data di posisi berapa yang mau Anda hapus? (1 - ', banyakdata, ')');
+            readln(i);
+            writeln('Apakah anda yakin? [Y/T]');
+            readln(yakin);
+            if (yakin = 'y') or (yakin = 'Y') then
+            begin 
+                surat[i].jenis_surat := '';
+                surat[i].no_surat := '';
+                surat[i].pengirim := '';
+                surat[i].perihal := '';
+
+                while(surat[i].jenis_surat <> '') do
+                begin
+                    temp := surat[i];
+                    surat[i] := surat[i+1];
+                    surat[i+1] := temp;
+                    i := i + 1;
+                end;
+
+                banyakdata := banyakdata - 1;
+
+                writeln();
+                writeln('Data berhasil dihapus!');
+                writeln('Tekan enter untuk melanjutkan');
+                readln();
+            end
+            else
+            begin
+                writeln();
+                writeln('Penghapusan dibatalkan!');
+                writeln('Tekan enter untuk melanjutkan');
+                readln();
+            end;
+        end;
+    end;
 
 procedure pengurutan_jenis_asc;//pengurutan jenis ASC (bubble sort) //alif
     var
@@ -216,6 +271,51 @@ procedure pengurutan_perihal;//menu pengurutan perihal ASC or DSC // Alif
         until pil = 0;
     end;
 
+//Pengurutan nomor surat ASC // tinggal pengurtan dsc sama aziz
+// Maximum sort Ascending
+procedure pengurutan_no_surat_asc;
+var 
+    i,j,maks,x:integer;
+    temp:TSurat;
+begin
+    x:=banyakdata;
+    for i:=1 to banyakdata-1 do
+    begin
+        maks:=1;
+        for j:=2 to x do
+        begin
+            if surat[j].no_surat > surat[maks].no_surat then 
+            begin
+                maks:=j;
+            end;
+        end;
+        temp:=surat[maks];
+        surat[maks]:=surat[j];
+        surat[j]:=temp;
+        x:= x-1;
+    end;
+end;
+
+procedure pengurutan_no_surat_dsc;
+var 
+    i,j,min:integer;
+    temp:TSurat;
+begin
+    for i:=1 to banyakdata-1 do
+    begin
+        min:=i;
+        for j:=1 to banyakdata do
+        begin
+            if surat[j].no_surat > surat[min].no_surat then
+            begin 
+                min:=j;
+            end;
+        end;
+        temp:=surat[i];
+        surat[i]:=surat[min];
+        surat[min]:=temp;
+    end;
+end;
 
 procedure pengurutan_no_surat;//Menu pengurutan nomor surat ASC or DSC //Alif 
     var
@@ -236,9 +336,9 @@ procedure pengurutan_no_surat;//Menu pengurutan nomor surat ASC or DSC //Alif
         until pil = 0;
     end;
 
-//Pengurutan nomor surat ASC // tinggal pengurtan dsc sama aziz
+//Pengurutan pengirm ASC 
 // Maximum sort Ascending
-procedure pengurutan_no_surat_asc;
+procedure pengurutan_pengirim_asc;
 var 
     i,j,maks,x:integer;
     temp:TSurat;
@@ -248,9 +348,10 @@ begin
     begin
         maks:=1;
         for j:=2 to x do
-            if surat[j].no_surat > surat[maks].no_surat 
-            then 
-                maks:=j
+        begin
+            if surat[j].pengirim > surat[maks].pengirim then
+            begin 
+                maks:=j;
             end;
         end;
         temp:=surat[maks];
@@ -260,27 +361,24 @@ begin
     end;
 end;
 
-//Pengurutan pengirm ASC // tinggal pengurutan dsc sama azis
-// Maximum sort Ascending
-procedure pengurutan_pengiriman_asc;
+procedure pengurutan_pengirim_dsc;
 var 
-    i,j,maks,x:integer;
+    i,j,min:integer;
     temp:TSurat;
 begin
-    x:=banyakdata;
     for i:=1 to banyakdata-1 do
     begin
-        maks:=1;
-        for j:=2 to x do
-            if surat[j].no_surat > surat[maks].no_surat 
-            then 
-                maks:=j
+        min:=i;
+        for j:=1 to banyakdata do
+        begin
+            if surat[j].pengirim > surat[min].pengirim then
+            begin 
+                min:=j;
             end;
         end;
-        temp:=surat[maks];
-        surat[maks]:=surat[j];
-        surat[j]:=temp;
-        x:= x-1;
+        temp:=surat[i];
+        surat[i]:=surat[min];
+        surat[min]:=temp;
     end;
 end;
 
@@ -510,5 +608,5 @@ begin
             else writeln('pilihan tidak dikenal');
         end;
     until pilihan_menu = 0;
-    //simpanFila();
+    simpanFile();
 end.
