@@ -593,7 +593,7 @@ function menu: integer; //aziis
 
 begin
     banyakdata:=0;
-    //bacaFile();
+    bacaFile();
     repeat
         clrscr;
         pilihan_menu := menu();
