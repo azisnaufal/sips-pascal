@@ -69,8 +69,7 @@ procedure lihat_data; //menampilkan data // Azis
                 gotoxy(56, i+3);write(surat[i].pengirim);
             end;
             writeln();
-            writeln('Tekan enter untuk melanjutkan.');
-            readln();
+            write('Tekan enter untuk melanjutkan.');
         end
         else
             writeln('Data pengarsipan surat masuk belum diisi.');
@@ -100,13 +99,20 @@ procedure ubah_data;//ubah data // alif
         i:integer;
     begin
         clrscr;
-        write('Data Nomor Berapa Yang Ingin Diubah : ');readln(i);
-        write('Jenis Surat   : ');readln(surat[i].jenis_surat);
-        write('Perihal Surat : ');readln(surat[i].perihal);
-        write('Nomor Surat : ');readln(surat[i].no_surat);
-        write('Pengirim : ');readln(surat[i].pengirim);
-        write('Data  Berhasil Diubah');
-        readln();
+        if banyakdata >= 1 then
+        begin
+            write('Data Nomor Berapa Yang Ingin Diubah : ');readln(i);
+            write('Jenis Surat   : ');readln(surat[i].jenis_surat);
+            write('Perihal Surat : ');readln(surat[i].perihal);
+            write('Nomor Surat : ');readln(surat[i].no_surat);
+            write('Pengirim : ');readln(surat[i].pengirim);
+            write('Data  Berhasil Diubah');
+            readln();
+        end
+        else
+        begin
+            write('Data Kosong');readln;
+        end;  
     end;
 
 procedure hapus_data;
@@ -151,6 +157,10 @@ procedure hapus_data;
                 write('Tekan enter untuk melanjutkan');
                 readln;
             end;
+        end
+        else
+        begin
+            writeln('Data kosong');readln;
         end;
     end;
 
@@ -407,10 +417,12 @@ procedure pengurutan;
         pilrut:integer;
     begin
         clrscr;
+        repeat
         writeln('1.Pengurutan jenis');
         writeln('2.Pengurutan Perihal');
         writeln('3.Pengurutan Nomor Surat');
         writeln('4.Pengurutan Pengirim');
+        writeln('0.Kembali');
         writeln('----------------------------');
         writeln('masukan Pilihan anda : ');readln(pilrut);
         case pilrut of
@@ -418,8 +430,10 @@ procedure pengurutan;
             2 : pengurutan_perihal;
             3 : pengurutan_no_surat;
             4 : pengurutan_pengirim;
+            0 : ;
             else writeln('Pilihan tidak dikenal');
         end;
+        until pilrut=0;
     end;
 
 
@@ -552,6 +566,7 @@ procedure cari_data();
     var 
         pil:integer;
     begin
+        clrscr;
         writeln('Menu Pencarian Data' );
         writeln('-------------------' );
         writeln('1. Berdasarkan Jenis');
