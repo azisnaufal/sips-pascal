@@ -1,5 +1,5 @@
 program UPengarsipan;
-uses crt, sysutils;
+uses crt, sysutils, strutils;
 
 const
     maks = 100;
@@ -17,6 +17,143 @@ var
     surat : array[1..maks] of TSurat;
     banyakdata : integer;
     pilihan_menu : integer;
+
+procedure filter_jenis; //azis
+var
+    i, num : integer;
+    filter : string[10];
+begin
+    clrscr;
+    write('Masukan kata yang ingin di filter : '); readln(filter);
+    writeln('--------------------------------------------------------------------');
+    writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+    writeln('--------------------------------------------------------------------');
+    num := 1;
+    for i:= 1 to banyakdata do
+    begin
+        if pos(filter, surat[i].jenis_surat) > 0 then
+        begin
+            gotoxy(2, num+4);write(i);
+            gotoxy(8, num+4);write(surat[i].no_surat);
+            gotoxy(21, num+4);write(surat[i].perihal);
+            gotoxy(40, num+4);write(surat[i].jenis_surat);
+            gotoxy(56, num+4);write(surat[i].pengirim);
+            num := num +1;
+        end;
+    end;
+    writeln();
+    write('Tekan enter untuk melanjutkan.');
+    readln();
+end;
+
+procedure filter_perihal; //azis
+var
+    i, num : integer;
+    filter : string[16];
+begin
+    clrscr;
+    write('Masukan kata yang ingin di filter : '); readln(filter);
+    writeln('--------------------------------------------------------------------');
+    writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+    writeln('--------------------------------------------------------------------');
+    num:=1;
+    for i:= 1 to banyakdata do
+    begin
+        if pos(filter, surat[i].perihal) > 0 then
+        begin
+            gotoxy(2, num+4);write(i);
+            gotoxy(8, num+4);write(surat[i].no_surat);
+            gotoxy(21, num+4);write(surat[i].perihal);
+            gotoxy(40, num+4);write(surat[i].jenis_surat);
+            gotoxy(56, num+4);write(surat[i].pengirim);
+            num := num +1;
+        end;
+    end;
+    writeln();
+    write('Tekan enter untuk melanjutkan.');
+    readln();
+end;
+
+procedure filter_no_surat; //azis
+var
+    i, num : integer;
+    filter : string[10];
+begin
+    clrscr;
+    write('Masukan kata yang ingin di filter : '); readln(filter);
+    writeln('--------------------------------------------------------------------');
+    writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+    writeln('--------------------------------------------------------------------');
+    num := 1;
+    for i:= 1 to banyakdata do
+    begin
+        if pos(filter, surat[i].no_surat) > 0 then
+        begin
+            gotoxy(2, num+4);write(i);
+            gotoxy(8, num+4);write(surat[i].no_surat);
+            gotoxy(21, num+4);write(surat[i].perihal);
+            gotoxy(40, num+4);write(surat[i].jenis_surat);
+            gotoxy(56, num+4);write(surat[i].pengirim);
+            num := num +1;
+        end;
+    end;
+    writeln();
+    write('Tekan enter untuk melanjutkan.');
+    readln();
+end;
+
+procedure filter_pengirim; //azis
+var
+    i, num : integer;
+    filter : string[10];
+begin
+    clrscr;
+    write('Masukan kata yang ingin di filter : '); readln(filter);
+    writeln('--------------------------------------------------------------------');
+    writeln('| NO |  NO SURAT  |      PERIHAL     |  JENIS SURAT  |  PENGIRIM   |');
+    writeln('--------------------------------------------------------------------');
+    num := 1;
+    for i:= 1 to banyakdata do
+    begin
+        if pos(filter, surat[i].pengirim) > 0 then
+        begin
+            gotoxy(2, num+4);write(i);
+            gotoxy(8, num+4);write(surat[i].no_surat);
+            gotoxy(21, num+4);write(surat[i].perihal);
+            gotoxy(40, num+4);write(surat[i].jenis_surat);
+            gotoxy(56, num+4);write(surat[i].pengirim);
+            num := num +1;
+        end;
+    end;
+    writeln();
+    write('Tekan enter untuk melanjutkan.');
+    readln();
+end;
+
+procedure filter_data; //azis
+    var 
+        pilrut:integer;
+    begin
+        repeat
+            clrscr;
+            writeln('1.Filter berdasarkan jenis');
+            writeln('2.Filter berdasarkan Perihal');
+            writeln('3.Filter berdasarkan Nomor Surat');
+            writeln('4.Filter berdasarkan Pengirim');
+            writeln('0.Kembali');
+            writeln('----------------------------');
+            write('masukan Pilihan anda : ');readln(pilrut);
+            case pilrut of
+                1 : filter_jenis;
+                2 : filter_perihal;
+                3 : filter_no_surat;
+                4 : filter_pengirim;
+                0 : ;
+                else writeln('Pilihan tidak dikenal');
+            end;
+        until pilrut=0;
+    end;
+
 
 procedure bacaFile; //Membaca file // Yusuf 
     var
@@ -36,7 +173,7 @@ procedure bacaFile; //Membaca file // Yusuf
         writeln('File tidak ditemukan');
     end;
 
-procedure simpanFile();
+procedure simpanFile(); //azis
     var
         f:file of TSurat;
         i:integer;
@@ -115,7 +252,7 @@ procedure ubah_data;//ubah data // alif
         end;  
     end;
 
-procedure hapus_data;
+procedure hapus_data; //azis
     var
         i : integer;
         yakin : string;
@@ -307,7 +444,7 @@ begin
     end;
 end;
 
-procedure pengurutan_no_surat_dsc;
+procedure pengurutan_no_surat_dsc; //azis
 var 
     i,j,min:integer;
     temp:TSurat;
@@ -372,7 +509,7 @@ begin
     end;
 end;
 
-procedure pengurutan_pengirim_dsc;
+procedure pengurutan_pengirim_dsc; //azis
 var 
     i,j,min:integer;
     temp:TSurat;
@@ -416,15 +553,15 @@ procedure pengurutan;
     var 
         pilrut:integer;
     begin
-        clrscr;
         repeat
+        clrscr;
         writeln('1.Pengurutan jenis');
         writeln('2.Pengurutan Perihal');
         writeln('3.Pengurutan Nomor Surat');
         writeln('4.Pengurutan Pengirim');
         writeln('0.Kembali');
         writeln('----------------------------');
-        writeln('masukan Pilihan anda : ');readln(pilrut);
+        write('masukan Pilihan anda : ');readln(pilrut);
         case pilrut of
             1 : pengurutan_jenis;
             2 : pengurutan_perihal;
@@ -566,6 +703,7 @@ procedure cari_data();
     var 
         pil:integer;
     begin
+    repeat
         clrscr;
         writeln('Menu Pencarian Data' );
         writeln('-------------------' );
@@ -573,6 +711,8 @@ procedure cari_data();
         writeln('2. Berdasarkan Perihal');
         writeln('3. Berdasarkan Nomor Surat');
         writeln('4. Berdasarkan pengirim');
+        writeln('0. Kembali');
+        writeln('--------------------------');
         write('Pilihan Anda : ');
         readln(pil);
         case pil of 
@@ -580,8 +720,10 @@ procedure cari_data();
             2 : Pencarian_Perihal;
             3 : Pencarian_Nomor_Surat;
             4 : Pencarian_Pengirim;
+            0 : ;
             else writeln('Pilihan tidak ditemukan');
         end;
+    until pil = 0;
     end;
 
 function menu: integer; //aziis
@@ -601,6 +743,7 @@ function menu: integer; //aziis
         writeln('4. Hapus Data');
         writeln('5. Pengurutan Data');
         writeln('6. Pencarian Data');
+        writeln('7. Filter Data');
         writeln('0. Keluar');
         writeln('-------------------------------');
         write('Pilihan anda: ');readln(pil);
@@ -620,6 +763,7 @@ begin
             4 : hapus_data;
             5 : pengurutan;
             6 : cari_data;
+            7 : filter_data;
             0 : ;
             else writeln('pilihan tidak dikenal');
         end;
