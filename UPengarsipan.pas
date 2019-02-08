@@ -271,12 +271,9 @@ end;
 // Maximum sort Ascending
 procedure pengurutan_no_surat_asc;
 var 
-    tahap,maks,x,i:integer;
     temp:TSurat;
 begin
-    for tahap :=1 to banyakdata-1 do
     begin
-        for i:=banyakdata to x do
     end;
 end;
 
