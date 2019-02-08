@@ -96,6 +96,8 @@ procedure ubah_data;//ubah data // alif
         readln();
     end;
 
+    
+
 procedure pengurutan_jenis_asc;//pengurutan jenis ASC (bubble sort) //alif
     var
         tahap, i:integer;
@@ -234,7 +236,7 @@ procedure pengurutan_no_surat;//Menu pengurutan nomor surat ASC or DSC //Alif
         until pil = 0;
     end;
 
-//Pengurutan nomor surat ASC // 
+//Pengurutan nomor surat ASC // tinggal pengurtan dsc sama aziz
 // Maximum sort Ascending
 procedure pengurutan_no_surat_asc;
 var 
@@ -258,20 +260,65 @@ begin
     end;
 end;
 
-procedure pengurutan;// menu awal pengurutan //Yusuf
+//Pengurutan pengirm ASC // tinggal pengurutan dsc sama azis
+// Maximum sort Ascending
+procedure pengurutan_pengiriman_asc;
+var 
+    i,j,maks,x:integer;
+    temp:TSurat;
+begin
+    x:=banyakdata;
+    for i:=1 to banyakdata-1 do
+    begin
+        maks:=1;
+        for j:=2 to x do
+            if surat[j].no_surat > surat[maks].no_surat 
+            then 
+                maks:=j
+            end;
+        end;
+        temp:=surat[maks];
+        surat[maks]:=surat[j];
+        surat[j]:=temp;
+        x:= x-1;
+    end;
+end;
+
+procedure pengurutan_pengirim;//Menu pengurutan nomor surat ASC or DSC //Alif 
+    var
+        pil:integer;
+    begin
+        repeat
+            clrscr;
+                writeln('1. Pengurutan Ascending');
+                writeln('2. Pengurutan Descending');
+                writeln('0. Kembali');
+                writeln('--------------------------------------');
+                writeln('Pilihan Anda : ');readln(pil);
+                case pil of 
+                    1:pengurutan_pengirim_asc();
+                    2:pengurutan_pengirim_dsc();
+                    0:;
+                end;
+        until pil = 0;
+    end;
+
+procedure pengurutan;
     var 
         pilrut:integer;
     begin
         clrscr;
         writeln('1.Pengurutan jenis');
         writeln('2.Pengurutan Perihal');
-        writeln('3.Pengurutan nomor surat');
+        writeln('3.Pengurutan Nomor Surat');
+        writeln('4.Pengurutan Pengirim');
         writeln('----------------------------');
         writeln('masukan Pilihan anda : ');readln(pilrut);
         case pilrut of
             1 : pengurutan_jenis;
             2 : pengurutan_perihal;
             3 : pengurutan_no_surat;
+            4 : pengurutan_pengirim;
             else writeln('Pilihan tidak dikenal');
         end;
     end;
