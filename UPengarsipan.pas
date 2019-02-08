@@ -157,7 +157,7 @@ procedure pengurutan_jenis;//menu pengurutan Jenis ASC or DSC //alif
         until pil = 0;
     end;
 
-procedure pengurutan_perihal_asc;//Pengurutan Perihal ASC (bubble sort)// sama alif ke lewat jadi sama Yusuf :p
+procedure pengurutan_perihal_asc;//Pengurutan Perihal ASC (bubble sort)//Alif
     var
         tahap, i:integer;
         temp:TSurat;
