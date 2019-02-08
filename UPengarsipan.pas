@@ -112,7 +112,7 @@ procedure ubah_data;//ubah data // alif
 procedure hapus_data;
     var
         i : integer;
-        yakin : char;
+        yakin : string;
         temp : TSurat;
     begin
         clrscr;
@@ -121,7 +121,7 @@ procedure hapus_data;
             write('Data di posisi berapa yang mau Anda hapus? (1 - ', banyakdata, ')');
             readln(i);
             write('Apakah anda yakin? [Y/T]');
-            read(yakin);
+            readln(yakin);
             if (yakin = 'y') or (yakin = 'Y') then
             begin 
                 surat[i].jenis_surat := '';
@@ -129,7 +129,7 @@ procedure hapus_data;
                 surat[i].pengirim := '';
                 surat[i].perihal := '';
 
-                while(surat[i].jenis_surat <> '') do
+                while(surat[i+1].jenis_surat <> '') do
                 begin
                     temp := surat[i];
                     surat[i] := surat[i+1];
@@ -142,14 +142,14 @@ procedure hapus_data;
                 writeln();
                 writeln('Data berhasil dihapus!');
                 write('Tekan enter untuk melanjutkan');
-                readln();
+                readln;
             end
             else
             begin
                 writeln();
                 writeln('Penghapusan dibatalkan!');
                 write('Tekan enter untuk melanjutkan');
-                readln();
+                readln;
             end;
         end;
     end;
