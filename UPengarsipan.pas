@@ -79,18 +79,19 @@ procedure lihat_data; //menampilkan data // Azis
 
 procedure tambah_data;//Menambahkan data // yusuf
     begin
+        clrscr;
         if banyakdata<maks then 
             begin
                 banyakdata:=banyakdata+1;
-                writeln('Data buku ke-',banyakdata);
-                writeln('Jenis surat : ');readln(surat[banyakdata].jenis_surat);
-                writeln('Perihal Surat : ');readln(surat[banyakdata].perihal);
-                writeln('no surat : ');readln(surat[banyakdata].no_surat);
-                writeln('Pengirim : ');readln(surat[banyakdata].pengirim);
+                writeln('Data surat masuk ke-',banyakdata);
+                write('Jenis surat : ');readln(surat[banyakdata].jenis_surat);
+                write('Perihal Surat : ');readln(surat[banyakdata].perihal);
+                write('no surat : ');readln(surat[banyakdata].no_surat);
+                write('Pengirim : ');readln(surat[banyakdata].pengirim);
             end
         else 
             begin
-                writeln('banyak data sudah mencapai batas maksimum');
+                writeln('batas data sudah mencapai batas maksimum');
             end;
     end;
 
@@ -99,12 +100,12 @@ procedure ubah_data;//ubah data // alif
         i:integer;
     begin
         clrscr;
-        writeln('Data Nomor Berapa Yang Ingin Diubah : ');readln(i);
-        writeln('Jenis Surat   : ');readln(surat[i].jenis_surat);
-        writeln('Perihal Surat : ');readln(surat[i].perihal);
-        writeln('Nomor Surat : ');readln(surat[i].no_surat);
-        writeln('Pengirim : ');readln(surat[i].pengirim);
-        writeln('Data  Berhasil Diubah');
+        write('Data Nomor Berapa Yang Ingin Diubah : ');readln(i);
+        write('Jenis Surat   : ');readln(surat[i].jenis_surat);
+        write('Perihal Surat : ');readln(surat[i].perihal);
+        write('Nomor Surat : ');readln(surat[i].no_surat);
+        write('Pengirim : ');readln(surat[i].pengirim);
+        write('Data  Berhasil Diubah');
         readln();
     end;
 
@@ -117,10 +118,10 @@ procedure hapus_data;
         clrscr;
         if (banyakdata <> 0) then 
         begin
-            writeln('Data di posisi berapa yang mau Anda hapus? (1 - ', banyakdata, ')');
+            write('Data di posisi berapa yang mau Anda hapus? (1 - ', banyakdata, ')');
             readln(i);
-            writeln('Apakah anda yakin? [Y/T]');
-            readln(yakin);
+            write('Apakah anda yakin? [Y/T]');
+            read(yakin);
             if (yakin = 'y') or (yakin = 'Y') then
             begin 
                 surat[i].jenis_surat := '';
@@ -140,14 +141,14 @@ procedure hapus_data;
 
                 writeln();
                 writeln('Data berhasil dihapus!');
-                writeln('Tekan enter untuk melanjutkan');
+                write('Tekan enter untuk melanjutkan');
                 readln();
             end
             else
             begin
                 writeln();
                 writeln('Penghapusan dibatalkan!');
-                writeln('Tekan enter untuk melanjutkan');
+                write('Tekan enter untuk melanjutkan');
                 readln();
             end;
         end;
